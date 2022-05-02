@@ -83,7 +83,7 @@ def parse_args():
     parser.add_argument('--previous_num', type=int, default=1)
     parser.add_argument('--future_num', type=int, default=1)
     parser.add_argument('--epochs', type=int, default=120)
-    parser.add_argument('--ssam_backbone', type=str, default="", help='')
+    parser.add_argument('--backbone', type=str, default="", help='')
     parser.add_argument('--use_feature', action='store_true', default=False, help='')
     parser.add_argument('--normalize_inside', action='store_true', default=False, help='')
     parser.add_argument('--lut_map_dir', default="", help='direct result of lut map')
@@ -126,7 +126,7 @@ def evaluate(net, val_dataloader, args, epoch):
 def main():
     args, cfg = parse_args()
     net = SSAMvideoLut(
-        depth=4, backbone_path=args.ssam_backbone, with_lutoutput=True, need_normalize = args.normalize_inside, need_denormalize =  args.normalize_inside,
+        depth=4, backbone_path=args.backbone, with_lutoutput=True, need_normalize = args.normalize_inside, need_denormalize =  args.normalize_inside,
         use_feature=args.use_feature, backbone_type = args.backbone_type
     )
     net.to(torch.device(int(args.gpu)))
