@@ -125,7 +125,7 @@ def parse_args():
                         help='')
     parser.add_argument('--previous_num', type=int, default=1)
     parser.add_argument('--future_num', type=int, default=1)
-    parser.add_argument('--ssam_backbone', type=str, default="", help='')
+    parser.add_argument('--backbone', type=str, default="", help='')
     parser.add_argument("--checkpoint", type=str, default="", help='')
     args = parser.parse_args()
     cfg = load_config_file(args.config_path, return_edict=True)
@@ -164,14 +164,14 @@ def main(given_number):
 
     if args.checkpoint:
         net = SSAMvideoLut(
-            depth=4, backbone_path=args.ssam_backbone, with_lutoutput=False, need_normalize=not args.normalize_outside,
+            depth=4, backbone_path=args.backbone, with_lutoutput=False, need_normalize=not args.normalize_outside,
             need_denormalize=not args.normalize_outside, use_feature=args.use_feature, backbone_type = args.backbone_type
         )
         load_weights(net, args.checkpoint)
         print("load checkpoint")
     else:
         net = SSAMvideoLutWithoutDbp(
-            depth=4, backbone_path = args.ssam_backbone, fix_threshold = 0.1, k_threshold = 0.1, use_lutoutput=False,
+            depth=4, backbone_path = args.backbone, fix_threshold = 0.1, k_threshold = 0.1, use_lutoutput=False,
             write_dir = args.write_dir ,backbone_type = args.backbone_type)
 
     net.eval()
