@@ -1,3 +1,0 @@
-{'resize_strategy': 'Fixed256', 'use_flip': False, 'use_tc': False, 'use_feature': True, 'backbone_type': 'issam', 'write_lut_output': '', 'write_lut_map': '', 'normalize_outside': False, 'gpu': '0', 'config_path': './config.yml', 'eval_prefix': '', 'train_list': None, 'val_list': './test.txt', 'write_npy_backbone': False, 'write_npy_result': False, 'backbone_npy_dir': '', 'result_npy_dir': '', 'dataset_path': '/new_data/data/dataset/video_harm_new/', 'previous_num': 8, 'future_num': 8, 'ssam_backbone': './final_models/issam_backbone.pth', 'checkpoint': './rain_8_8_try/1.pth'}
-Load checkpoint from path: ./final_models/issam_backbone.pth
-Load checkpoint from path: ./rain_8_8_try/1.pth
