@@ -35,7 +35,7 @@ def generate_frame_list(write_name, dir_name, list_name):
 args = parse_args()
 #generate_frame_list('train_frames.txt',args.dataset_path, 'train_list.txt')
 #generate_frame_list('test_frames.txt', args.dataset_path, 'test_list.txt')
-generate_frame_list(args.write_name, args.dir_name, args.list_name)
+generate_frame_list(args.write_name, args.dataset_path, args.list_name)
 
 
 
