@@ -137,7 +137,7 @@ for i, task in enumerate(tasks):
 
     pre, obj, num = task.split()[0].split('/')
     num = '%05d' % (int(num[:-4]) + 1) + num[-4:]
-    next_tar_name = os.path.join(next_tar_dir, pre + '/' + obj + '_' + num)
+    next_tar_name = os.path.join(next_tar_dir, pre + '/' + obj + '/' + num)
     assert os.path.exists(next_tar_name)
 
     next_original_pic = torch.from_numpy(val_augmentator(image=cv2.imread(next_tar_name))["image"][:, :, ::-1].transpose(2, 0, 1).copy()).cuda().unsqueeze(0).float()
