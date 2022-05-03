@@ -6,7 +6,12 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--dataset_path', type=str, default=None,
                         help='')
+    parser.add_argument('--list_name', type=str, default=None,
+                        help='')
+    parser.add_argument('--write_name', type=str, default=None,
+                        help='')
     args = parser.parse_args()
+    
     return args
 
 def generate_frame_list(write_name, dir_name, list_name):
@@ -28,8 +33,9 @@ def generate_frame_list(write_name, dir_name, list_name):
                 assert gt_name[-9:-4] == tran_name[-9:-4]
                 f.write(gt_name + ' ' + masks_name + ' ' + tran_name + '\n')
 args = parse_args()
-generate_frame_list('train_frames.txt',args.dataset_path, 'train_list.txt')
-generate_frame_list('test_frames.txt', args.dataset_path, 'test_list.txt')
+#generate_frame_list('train_frames.txt',args.dataset_path, 'train_list.txt')
+#generate_frame_list('test_frames.txt', args.dataset_path, 'test_list.txt')
+generate_frame_list(args.write_name, args.dir_name, args.list_name)
 
 
 
