@@ -25,7 +25,7 @@ cd tridistribute
 ```
 ## Generate frame-level text
 ```bash
-python3 scripts/generate_frame_list.py --dataset_path <Your path to HYouTube>
+python3 scripts/generate_frame_list.py --dataset_path <Your path to HYouTube> --list_name <List in dataset> --write_name <write list name>
 ```
 ## evaluate by our released model
 ```bash
@@ -64,7 +64,14 @@ Please follow command of [FlowNetV2](https://github.com/NVIDIA/flownet2-pytorch)
 ### prepare result
 You need to store the numpy result of model like 
 ```bash
-python3  scripts/evaluate_model.py --gpu=0 --dataset_path <Your path to HYouTube> --val_list ./test_frames.txt --backbone <Your backbone model> --previous_num 8 --future_num 8 --write_npy_result --result_npy_dir <Directory to store numpy result>
+python3  scripts/evaluate_model.py --gpu=0 --dataset_path <Your path to HYouTube> --val_list ./test_frames.txt --backbone <Your backbone model> --previous_num 8 --future_num 8 --checkpoint <Your checkpoint> --write_npy_result --result_npy_dir <Directory to store numpy result>
+```
+```bash
+python3  scripts/evaluate_model.py --gpu=0 --dataset_path <Your path to HYouTube_Next> --val_list <next_frames.txt> --backbone <Your backbone model> --previous_num 8 --future_num 8 --checkpoint <Your checkpoint> --write_npy_result --result_npy_dir <Directory to store numpy future result>
+```
+Then calculate TL loss like
+```bash
+python3  evaluate_flow.py --dataset_path <Your path to HYouTube> --dataset_path_next <Your path to HYouTube_Next> --cur_result <result of current numpy dir> --next_result <result of next numpy dir>
 ```
 
 
